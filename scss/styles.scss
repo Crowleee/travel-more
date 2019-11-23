@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i,400,400i,700,700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
+
+
+@import 'normalize';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100%; 
+    font: 1.6rem/1.6 'Josefin Sans', sans-serif;
+    background-color: #fff;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1115px;
+    width: 96%;
+}
+
+.section {
+    &__wrap {
+        min-height: 100vh; 
+    }
+    &__hero {
+        padding: 100px 0;
+        text-align: center;
+        color: #fff;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative; 
+    }
+    &__title {
+        text-transform: uppercase;
+        letter-spacing: 1;
+        @include text(#fff, 'Josefin Sans', 4.8rem, 700, 1);
+    }
+    &__subtitle {
+        @include text(#fff, 'Josefin Sans', 2.2rem, 400, 1);  
+    }
+    &__form {
+        display: flex;
+        justify-content: center;
+        color: #999999;
+    }
+    &__search {
+        color: #999999;
+        height: 60px;
+        width: 650px;
+    }
+    &__button {
+        background-color: #5474fd;
+        width: 150px;
+        height: 60px;
+        letter-spacing: 1.2;
+        @include text(#fff, 'Aleo', 1.4rem, 400, 1);
+        svg {
+            margin: 0 0 0 10px;
+            @include tr();
+        }
+    }
+    &__text {
+        margin-top: 120px;
+        @include text(#fff, 'Josefin Sans', 1.4rem, 400, 1.8);
+    }
+    &__scroll {
+        color: #fff;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 75px;
+    }
+
+    &__enjoy {
+        background-color: #333333;
+    }
+
+    &____book--left {
+
+    }
+}
+
+.header {
+    background-color: #5474fd;
+    &__menu {
+        padding: 10px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__logo {
+        font-size: 2.4rem;
+        color: #fff;
+    }
+}
+
+.menu {
+    list-style: none;
+    &__item {
+        display: inline-block;
+        color: #fff; 
+    }
+    &__link { 
+    }
+}
+
+.footer {
+    background-color: #232323;
+    &__text {
+
+    }
+}
+
+.fa-quote-left {
+    color: #5474fd;
+}
