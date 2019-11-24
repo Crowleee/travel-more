@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i,400,400i,700,700i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Aleo:300,300i,400,400i,700,700i|Josefin+Sans:400,700&display=swap');
 
 @import 'normalize';
 @import 'mixins';
@@ -18,67 +16,85 @@ html {
 body {
     min-height: 100%; 
     font: 1.6rem/1.6 'Josefin Sans', sans-serif;
-    background-color: #fff;
+    color: #fff;
 }
 
 .container {
     margin: 0 auto;
-    max-width: 1115px;
-    width: 96%;
+    max-width: 1110px;
+    width: 100%;
 }
 
-.section {
-    &__wrap {
-        min-height: 100vh; 
-    }
-    &__hero {
-        padding: 100px 0;
-        text-align: center;
-        color: #fff;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative; 
+.hero {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; 
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
     }
     &__title {
         text-transform: uppercase;
-        letter-spacing: 1;
+        letter-spacing: 1px;
         @include text(#fff, 'Josefin Sans', 4.8rem, 700, 1);
+        // margin: 0;
     }
     &__subtitle {
-        @include text(#fff, 'Josefin Sans', 2.2rem, 400, 1);  
-    }
-    &__form {
-        display: flex;
-        justify-content: center;
-        color: #999999;
+        @include text(#fff, 'Josefin Sans', 2.2rem, 400, 1);
+        letter-spacing: 4px;  
     }
     &__search {
-        color: #999999;
-        height: 60px;
-        width: 650px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 60%;
+        input {
+            padding: 10px;
+            width: 100%;
+            height: 60px;
+            &::placeholder {
+                @include text(#999999, 'Josefin Sans', 1.4rem, 400, 1);
+                letter-spacing: 2px;
+                text-align: center; 
+            }
+        }
     }
-    &__button {
+    &__btn {
         background-color: #5474fd;
         width: 150px;
         height: 60px;
-        letter-spacing: 1.2;
+        position: relative;
+        letter-spacing: 1px;
+        cursor: pointer;
         @include text(#fff, 'Aleo', 1.4rem, 400, 1);
         svg {
             margin: 0 0 0 10px;
             @include tr();
         }
-    }
-    &__text {
-        margin-top: 120px;
-        @include text(#fff, 'Josefin Sans', 1.4rem, 400, 1.8);
+        @include hover {
+            svg {
+                transform: scale(1.2);
+            }
+        }
     }
     &__scroll {
-        color: #fff;
+        @include text(#fff, 'Josefin Sans', 1.4rem, 400, 1.8);
+        letter-spacing: 2px;
+        text-align: center;
+        text-decoration: none;
         position: absolute;
         left: 50%;
         transform: translate(-50%, 0);
         bottom: 75px;
+        @include hover {
+            opacity: 0.7;  
+        }
     }
 
     &__enjoy {
@@ -90,34 +106,52 @@ body {
     }
 }
 
-.header {
+header {
     background-color: #5474fd;
-    &__menu {
-        padding: 10px;
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-    }
-    &__logo {
-        font-size: 2.4rem;
-        color: #fff;
-    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
 }
 
-.menu {
+.nav {  
     list-style: none;
+    display: flex;
+    justify-content: space-between;
+    &__menu {}
+    &__logo {
+        @include text(#fff, 'Josefin Sans', 2.4rem, 700, 1);
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 15px 0 0 0;
+    }
     &__item {
         display: inline-block;
-        color: #fff; 
     }
-    &__link { 
+    &__link {
+        text-decoration: none;
+        color: #fff;
+        margin-left: 3rem;
+        text-transform: uppercase;
+        font-size: 1.4rem;
     }
+
 }
 
 .footer {
     background-color: #232323;
     &__text {
+    }
+}
 
+.socials {
+    list-style: none;
+}
+
+.social {
+    &__link {
+        color: #fff;
     }
 }
 
