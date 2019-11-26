@@ -462,10 +462,10 @@ body {
     text-decoration: none;
     position: absolute;
     left: 50%;
-    -webkit-transform: translate(-50%, -100%);
-    -ms-transform: translate(-50%, -100%);
-    -o-transform: translate(-50%, -100%);
-    transform: translate(-50%, -100%);
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
     bottom: 75px;
     -webkit-transition: all .4s ease-in;
     -o-transition: all .4s ease-in;
@@ -759,7 +759,12 @@ header {
     color: #fff;
     line-height: 1;
     letter-spacing: 2px;
-    margin: 10px; }
+    margin: 10px;
+    -webkit-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    transition: all .4s ease-in; }
+    .footer__logo:hover, .footer__logo:focus, .footer__logo:active {
+      color: #5474fd; }
   .footer__text {
     font-weight: 300; }
 
