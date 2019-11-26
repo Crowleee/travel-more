@@ -3,6 +3,9 @@
 @import 'normalize';
 @import 'mixins';
 
+$main_text: #fff;
+$accent_color: #5474fd;
+
 * {
     box-sizing: border-box;
 }
@@ -16,7 +19,7 @@ html {
 body {
     min-height: 100%; 
     font: 1.6rem/1.6 'Josefin Sans', sans-serif;
-    color: #fff;
+    color: $main_text
 }
 
 .container {
@@ -41,73 +44,78 @@ body {
     &__title {
         text-transform: uppercase;
         letter-spacing: 1px;
-        @include text(#fff, 'Josefin Sans', 4.8rem, 700, 1);
-        // margin: 0;
+        @include text($main_text, 'Josefin Sans', 4.8rem, 700, 1);
+        margin: 0;
     }
     &__subtitle {
-        @include text(#fff, 'Josefin Sans', 2.2rem, 400, 1);
-        letter-spacing: 4px;  
+        @include text($main_text, 'Josefin Sans', 2.2rem, 400, 1);
+        letter-spacing: 4px;
+        margin: 10px; 
     }
     &__search {
         display: flex;
         justify-content: center;
         align-items: center;
         position: relative;
-        width: 60%;
+        padding: 40px;
         input {
             padding: 10px;
-            width: 100%;
+            width: 650px;
             height: 60px;
+            font-size: 1.8rem;
             &::placeholder {
-                @include text(#999999, 'Josefin Sans', 1.4rem, 400, 1);
+                @include text(#999999, 'Josefin Sans', 1.4rem, 400, 1.2);
                 letter-spacing: 2px;
                 text-align: center; 
             }
         }
     }
     &__btn {
-        background-color: #5474fd;
+        background-color: $accent_color;
         width: 150px;
         height: 60px;
         position: relative;
         letter-spacing: 1px;
         cursor: pointer;
-        @include text(#fff, 'Aleo', 1.4rem, 400, 1);
-        svg {
+        @include text($main_text, 'Aleo', 1.4rem, 400, 1);
+        border: 1px solid #fff;
+        & svg {
             margin: 0 0 0 10px;
+            position: absolute;
+            left: 70%;
+            bottom: 30%;
             @include tr();
         }
         @include hover {
             svg {
-                transform: scale(1.2);
+                transform: scale(1.4);
             }
         }
     }
     &__scroll {
-        @include text(#fff, 'Josefin Sans', 1.4rem, 400, 1.8);
+        @include text($main_text, 'Josefin Sans', 1.4rem, 400, 1.8);
         letter-spacing: 2px;
         text-align: center;
         text-decoration: none;
         position: absolute;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -100%);
         bottom: 75px;
         @include hover {
-            opacity: 0.7;  
+            svg {
+                transform: translate(0%, 50%) scale(1.4);;
+                @include tr();
+            } 
         }
-    }
-
-    &__enjoy {
-        background-color: #333333;
-    }
-
-    &____book--left {
-
+        svg {
+            @include tr();
+            margin-bottom: 12px;
+        }
     }
 }
 
 header {
-    background-color: #5474fd;
+    background-color: $accent_color;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -119,42 +127,230 @@ header {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    &__menu {}
     &__logo {
-        @include text(#fff, 'Josefin Sans', 2.4rem, 700, 1);
+        @include text($main_text, 'Josefin Sans', 2.4rem, 400, 1);
         text-decoration: none;
         text-transform: uppercase;
         padding: 15px 0 0 0;
+        letter-spacing: 1px;
+        // @include hover {
+        //     box-shadow: 0 0 20px #000;
+        // }  
     }
     &__item {
         display: inline-block;
     }
     &__link {
         text-decoration: none;
-        color: #fff;
         margin-left: 3rem;
         text-transform: uppercase;
-        font-size: 1.4rem;
+        @include text($main_text, 'Aleo', 1.4rem, 400, 1);
+        border-bottom: 1px solid transparent;
+        @include hover {
+            border-color: $main_text;
+        }
     }
 
+}
+
+.choose {
+    height: 85vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    &__blocks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+    &__left {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    &__right {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        img + img {
+            align-self: flex-end;
+            margin-top: 5px;
+         img:first-child {
+            margin-right: 120px;
+        }
+    }
+    
+    }
+    &__title {
+        margin: inherit;
+        @include text($main_text, 'Aleo', 3.6rem, 400, 1);
+        text-transform: capitalize;
+    }
+    &__text {
+        font-weight: 300;
+        margin-top: 50px;
+    }
+
+}
+
+.btn {
+    width: 230px;
+    height: 60px;
+    background: linear-gradient(45deg, #496bfe 40%, $accent_color 40%);
+    cursor: pointer;
+    @include text($main_text, 'Aleo', 1.6rem, 400, 1);
+    text-transform: uppercase;
+    border: none;
+    letter-spacing: 0.75px;
+    margin-top: 30px;
+    @include hover {
+        box-shadow: 0 0 10px #496bfe;
+    }           
+}
+
+.steps {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    background-color: #333333;
+    &__elements {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 30px;
+        span {
+            display: inline-block;
+            margin: 20px 10px;
+            @include text($main_text, 'Aleo', 3.6rem, 400, 1);
+        }
+    }
+}
+
+.book {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    padding: 100px;
+    &__block {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        background-color: rgba(35, 35, 35, 0.8);
+        padding: 30px 30px 50px 30px;
+        &--right {
+            display: flex;
+            justify-content: flex-end;
+        } 
+    }
+    &__title {
+        text-transform: capitalize;
+        font-size: 2rem;
+    }
+    &__subtitle {
+        text-transform: uppercase;
+        margin: 0px;
+        font-size: 2rem;
+    }
+    p {
+        font-weight: 300;    
+    }
+
+}
+
+.reviews {
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    &__title {
+        @include text($main_text, 'Aleo', 3.6rem, 400, 1);
+        text-align: center;
+        padding: 100px 50px 50px;
+        margin: inherit;
+    }
+    &__card {
+        display: flex;
+        max-height: 285px;
+        margin-top: 100px;
+    }
+    &__rewiew {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #333;
+        & blockquote {
+            padding-left: 20px;
+        }
+    }
+    &__name {
+        font-size: 2rem;
+        text-transform: uppercase;
+        margin-left: 60px; 
+    }
+    
+}
+
+.fa-quote-left {
+    color: $accent_color;
 }
 
 .footer {
     background-color: #232323;
-    &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__logo {
+        text-decoration: none;
+        text-transform: uppercase;
+        @include text($main_text, 'Josefin Sans', 2.4rem, 700, 1);
+        letter-spacing: 2px;
+        margin: 10px;
     }
+    &__text {
+        font-weight: 300;
+    }
+}
+
+
+footer {
+    padding-top: 115px;
 }
 
 .socials {
     list-style: none;
+    padding: 0;  
 }
 
 .social {
+    display: inline-block;
+    text-align: center;
+    padding: 0px;
+    margin: auto;
+    list-style: none;  
     &__link {
-        color: #fff;
+        color: $main_text;
+        display: inline-block;
+        text-align: center;
+        padding: 8px;
+        @include hover {
+            color: $accent_color;
+            box-shadow: 0 0 10px #496bfe;
+        }
     }
 }
 
-.fa-quote-left {
-    color: #5474fd;
-}
