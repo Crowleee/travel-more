@@ -29,17 +29,18 @@ body {
 }
 
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative; 
+    position: relative;
     &__content {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         height: 100%;
+        padding: 80px 20px;
     }
     &__title {
         text-transform: uppercase;
@@ -215,10 +216,11 @@ header {
 }
 
 .steps {
-    min-height: 40vh;
+    // min-height: 40vh;
     display: flex;
     align-items: center;
     background-color: #333333;
+    padding: 100px 0 50px;
     &__elements {
         display: flex;
         justify-content: space-between;
@@ -233,6 +235,29 @@ header {
             display: inline-block;
             margin: 20px 10px;
             @include text($main_text, 'Aleo', 3.6rem, 400, 1);
+        }
+    }
+    &__arc {
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            z-index: 0;
+            width: 70%;
+            background-image: url(../img/arc.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        svg {
+            padding: 15px;
+            background-color: #333;
+            z-index: 1;
+            position: relative;
         }
     }
 }
@@ -288,11 +313,12 @@ header {
         margin-top: 100px;
     }
     &__rewiew {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
+        // display: flex;
+        // align-items: flex-start;
+        // justify-content: center;
+        // flex-direction: column;
         background-color: #333;
+        padding-top: 20px;
         & blockquote {
             padding-left: 20px;
         }
